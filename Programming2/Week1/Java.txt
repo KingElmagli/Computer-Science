@@ -1,0 +1,970 @@
+note! compiling code is basically trasforming source code into machine code i.e. binary(0's and 1's)
+
+you need to have:
+                    |
+public class Main {
+    public static void main(String[] args){
+        Your code------
+    }
+}
+                   
+Variables----
+
+data types: (primitive and refrence data types)
+Primitive - 8 types (boolean, byte, etc..), stores data, can only hold one value, less memory, faster.
+Reference - Unlimited(user's choice), is an address it refres to an object or instance of a class, could hold more than 1 value, more memory, slower.
+
+data types:
+boolean = true or false size =1bit
+byte = -128 to 127 size = 1byte.
+short = -32,768 to 32,767 size = 2bytes.
+int =  i.e. -2,000,000,000 to 2,000,000,000 size = 4bytes.
+long = -9 quintillion to 9quintillion size = 8bytes. i.e. if you need to type a long number like 8000,000,000,000,000,000 use long.
+
+note! only float and double can store a decimal. e.g. 3.121.
+
+float = fractional digits up to 6-7 digits ex. 3.141592f size = 4bytes.
+double = fractional digits up to 15 numbers size = 8bytes.
+note! for the float you need to have an f at the end unlike the double.
+
+char 2bytes = single letter/character/ASCII value e.g. f size 2bytes.
+string = a sequence of letters size = varies (because it's a refrence);
+
+note! in Java all primitive data type's first letter is in small-case and all refrence data types first letter is in upper-case.
+Creating variables:
+
+public class Main {
+    public static void main(String[] args){
+        //int = integers, 
+        int Mustafa = 123; (initialisation)
+        //or 
+        int Mustafa; //(declaration)
+        Mustafa = 123;
+
+        System.out.println(x);
+       //You can also merge other values within your variable. 
+       e.g.System.out.println("My number is: " + x);
+
+       float y = 3.14f;
+       boolean z = true; //only true or false.
+
+       Swapping variables:
+
+       char symbol = £ @;
+       String x = "Water";
+       String y = "Orange Juice";
+
+       /*to swap write*/ x = y;
+       System.out.println("x: " + x);
+       System.out.println("y: " + y);
+
+     //now both x and y = orange juice;
+
+     //to swap both of the variables i.e. make x = y and vice versa
+     //x=y; and make y=x;
+     // you have to create another variable 
+     x = y;
+     String d = x;
+     y = d;
+    }
+}
+Escape sequences:
+String message = "hello"Mustafa"; //this will cause an error because the java compiler will think the second quote is the termination of our string and therefore the other string has no opening quote.
+therefore if we want to use the "" as a value we can use the back slash i.e.
+String message = "hello\"Mustafa\"" the back slash makes us escape or disable the double quote so a back slash before the quote you want to convert into a string value will do the job.
+
+Also for example if you want to write a back slash as a string for e.g. you want to write C:\windows\
+String message = "c:\\Windows\\" so we wrote another backslash to escape from it, before the first backslash we wrote another backslash and same with the last one.
+
+Also we have another backslash sequence: which is the n;
+String message = "c:\nWindows\\" if you put backslash n java will insert a new line,
+And also String message = "c:\tWindows\\" if you put \t if you put \t java will insert a tab between c: and windows.
+
+
+Arrays:
+
+Arrays are used to store alist of items and or alist of numbers.
+to create an array you int[] number; to have square brackets after the variable
+
+because arrays are refrence types we need to use the new operator, refrence types do not store values, but they are an address which refres to an object or an instance of a class.
+
+e.g. int[] numbers = new int[9]; so after the new keyword we need to retype the data type.
+inside the square brackets after the new keyword we write the amount of items we want this array to have, so for the above example we have 10 items avaliable (because the count starts from 0).
+
+and to store values inside this array,
+numbers[0] = 1111;
+numbers[1] = 222;
+numbers[2] = 3333;
+
+now if we want to print our arrays like for e.g.
+System.out.println(numbers); //the output would a weird string like(I@4617c264) instead of the items in our array and the reason is because by default when we print an array java returns the string which is calculated based on the address of this object in memory so,
+if we have another array and we print that we're gonna see something different, so to see the items in this array we have a class called Arrays,
+so by using this Arrays class i.e. Arrays.toString this is the built in class Arrays and the .toString is a method in this class
+
+so to print Arrays to the console we type,
+System.out.println(Arrays.toString(numbers)); //so basically we are printing the Array that we converted to a string.
+And then we will get our values printed to the console which are [1111, 222, 3333, 0, 0, 0, 0, 0, 0], and the 0's mean that the remaining values are empty.
+
+int[] numbers = new int[9]; 
+numbers[0] = 1111;
+numbers[1] = 222;
+numbers[2] = 3333;
+
+imp note! the Array.toString class is only used when you wan to convert the entire array into a string and print the entire array, 
+but if you only want to print one value you dont use it so it will be System.out.println(numbers[1]); 
+
+int[] numbers = {1111,222,3333}; //this is a newer way of writing down the arrays
+by default java will know that you have 3 values stored.
+if you want to know the length of your Array you can use the method .length so 
+System.out.println(numbers.length);
+
+Another method of the Arrays class is .sort which sorts your array from the least numbers going on to the higher ones.
+so Arrays.sort(numbers); //the output will be (0,0,0,0,222,1111,3333);
+
+ArrayLists:
+
+Array lists are more flexible than arrays.
+e.g. ArrayList numbers = new ArrayList();
+
+    ArrayList numbers = new ArrayList();
+    numbers.add("1111");
+    numbers.add("222");
+    numbers.add("3333");
+    numbers.remove("222");
+    System.out.println(numbers); 
+System.out.println(numbers); // we don't even need to convert an array to a string.
+
+for a normal array if you want to add a new item to the array you have to change the number of values of the array but as for an arrayList you can just add and remove items normally.
+also in ArrayList you don't need to specify the data type before declaring the array, you can just add strings, int, long, char whatever.
+We can also check if our array contains a certain value by using.contains method for e.g. numbers.contain("value"); (useful for large amounts of data)
+
+
+Multi-dimentional arrays:
+
+
+A one-dimensional array can be thought of as a list of elements, a multi-dimensional array organizes data in a grid-like structure, allowing for more complex relationships between elements. 
+The most common types of multi-dimensional arrays are two-dimensional arrays (often used to represent matrices i.e. rows and columns) and three-dimensional arrays (which can represent data such as images in color channels). Multi dimensional arrays are used in many things such as Matrices, Image processing, data represntation etc...
+
+A 1D array has a single row or column (like a list). (this is a one dimensional array which is the normal array)
+A 2D array has rows and columns (like a table or matrix).
+A 3D array has depth in addition to rows and columns (like a stack of matrices).
+
+note! when you want to print the values of the multi-dimensional arrays to the screen you don't use .toString method but you use the .deepToString method.
+
+If we want to create atwo dimensional array we have to add two brackets i.e.
+ int[][] numbers = new int[2][3]; // so basically this is saying that we have 2rows and 3columns 
+ numbers[0][0] = 1; //so basically this is saying that the firt row's first column = 1;
+ numbers[1][2] = 2; // and this is saying that the first row's second column = 2
+ //numbers[3][4] = 2; // this will cause an error because we only have 2 rows and 3 columns.
+ System.out.println(Arrays.deepToString(numbers));
+
+ The first dimension (which you can think of as the outer array) has a size of 2. This means there are 2 rows in the array.
+The second dimension (the inner arrays) has a size of 3. This means each of those rows can hold 3 columns (or elements).
+
+
+As for three dimensional arrays it will be like this 
+    String[][][] fruits = new String [2][2][2];
+    fruits[0][0][0] = "Apple";
+    fruits[0][0][1] = "Banana";
+    fruits[0][1][0] = "Cherry";
+    fruits[0][1][1] = "Date";
+    fruits[1][0][0] = "Elderberry";
+    fruits[1][0][1] = "Fig";
+    fruits[1][1][0] = "Grape";
+    fruits[1][1][1] = "Honeydew";
+    System.out.println(Arrays.deepToString(fruits)); etc...
+
+//So basically we have 2 layers each of those layers has 2 rows and each of the rows has 2 columns.
+as for an anolgy, you could say that there are 2papers and within each paper there are two rows and for each rows there are two columns.
+
+you can also have a 4 or 5 dimensional array.
+
+we could also use the newer way of writing down the arrays,
+int[][] numbers = {{1,2,3}, {4,5,6}, {6,7,8}}; //just like I mentioned earlier you donot need to write down the amount of either the rows and columns, in this case we have 3rows and 3columns
+
+    int[][][] numbers = { { {1,2,3}, {4,5,6} }, { {6,7,8},  {9, 10, 11} } }; And this one has 3 layers(think of layers like different papers) and each layer has 3rows and each row has 3 columns.
+    System.out.println(Arrays.deepToString(numbers)); 
+
+Another note! you donot need to use the .deepToString method when printing only one value,
+System.out.println(numbers[0][1][1]); so the first layer is { {1,2,3}, {4,5,6} } and the second row is {4,5,6} and the second column is 5, so the output will be 5.
+and because we are printing only one value we don't use the .deepToString Arrays method.
+
+
+Constants:
+
+Constants are variables whose values cannot be changed after they are initialized.
+for e.g. 
+float pi = 3.141f;
+pi = 1; //this will just immediately change the pi value to 1;
+
+so if we want to make the value of pi unchanged we would use constants.
+and to do that we use the final keyword for e.g.
+
+final float pi = 3.14; //now the value can never be changed later.
+note! the convention when naming constants is using uppercase.
+
+note! the value of pi is 3.14159 //its a mathematical constant 
+note! to calculate the circumeference you multiply the diameter by the pi.
+
+Arithmetic Expressions:
+Basically they are the same as in Math so -, +, *, /,%(remainder)
+
+int result = 10+3;
+System.out.println(result); //output is 13.
+
+int result = 10/3; // the output is 3 and thats because in java when dividing two whole numbers the output will be a whole number
+System.out.println(result);
+so the solution for this is to convert it to a double so,
+double result = (double)10 / (double)3;
+System.out.println(result);  //now the output is gonna be 3.3333333333333335 and thats because a double is greater than a float or else the result would have been with less decimals.
+
+int x = 1;
+x++; //we can do it as a postfix x++ or as a prefix ++x.
+System.out.println(x); output is 2
+
+int x = 1;
+int y = x++; 
+System.output.println(x);
+System.output.println(y);
+The output will be x = 2, and y = 1; the reason is because we've applied the value of x as a postfix so x will first be copied to y then x will get incremented therefore y will be 1 and x will be 2;
+
+int x = 1;
+int y = ++x; 
+System.output.println(x);
+System.output.println(y);
+The output will be x = 2, and y = 2; the reason is because we've applied the value of x as a prefix so x will first be incremented by 1  and then copied to y therefore y will be 2 and x will be 2;
+
+to increment x by more than 1,
+x+=3; or even x-=3 or x/=3 so x=x/3 or x*=3.
+
+
+Casting:
+
+Casting in programming refers to the conversion of a variable from one data type to another. It is a fundamental concept that allows developers to change the type of a variable so that it can be used appropriately in different contexts. 
+
+for e.g. 
+// this is called Implicit casting so basically because a short(2bytes) is less than an integer(4bytes) and they're the same data type(whole numbers) therfore it can be automatically converted.
+short x = 1;
+int y = x + 2;
+System.out.println(y);
+
+but if we try
+int x = 1;
+short y = x+1;
+we will get an error because you cannot convert the greater into smaller.
+
+note! you cannot implicitly convert a larger data type into a smaller data type, and a different data type into another for e.g.
+
+
+double x = 1.22; //double is a floating point
+int y = x + 2; //int is a whole number 
+so there will be an error because you cannot convert a different data type into another, 
+
+note! impicit or automatic casting only happens when there would not be a data loss.
+Narrowing conversions (e.g., double to int, float to int) require explicit casting because they may result in the loss of precision or range.
+Widening conversions (e.g., int to double, float to double) can be done implicitly since they do not result in information loss.
+
+because for e.g. 
+double num = 9.99;
+int intNum = num;
+System.out.println(intNum); //if this was allowed the output will be 9 because int is a whole number and does not accept floating points, 
+therefore if this was allowed implicitly the user might lose the .99 data unconsiously,
+thats where explicit casting takes place so for the user to cast a double into an int he should show that he is consious about it
+ 
+ for e.g. 
+ double num = 9.99;
+ int intNum = (int) num; //thats explicitly casted, by putting the data type between brackets after the equal sign.
+ System.out.println(intNum); //no errors, output 9 
+ 
+ note! you can only convert compatible types like byte, short, int, long, float, double but you cannot explicitly those data types to a string and vice versa.
+ for example 
+ String x = "1";
+ int y = int = x + 2; //that would cause an error.
+ but we can use classes to change the string into an integer, short, float, double etc... for example,
+ 
+ Interger.parseInt(x); //output 3
+ or Short.parseShort(); or Double.parseDouble(); etc...
+
+
+The Math class:
+
+The methods of the Math class:
+
+Math.round(); this would round a floating point number to a whole number, example,
+int result = Math.round(1.1f);
+System.out.println(result); //output 1 so it rounds to the nearest integer.
+
+int numbers = Math.ceil(1.6F); //This would return an error because the Math.ceil() method returns a double(a large floating point number), The purpose of Math.ceil() is to return the smallest integer that is greater than or equal to the specified value, i.e. it rounds the number to the nearest greater value,
+therefore, you cannot directly assign the result of Math.ceil() to an int variable without an explicit cast.
+
+so it should be like this:
+int result = (int)Math.ceil(1.1f);
+System.out.println(result); //output 2
+
+Math.floor does the opposite, so it is the largest integer that is smaller or equal to the number.
+int result = (int)Math.round(1.6f);
+System.out.println(result); //output 1
+
+Math.max(); returns the greatest of two values 
+int result = Math.max(1, 2);
+System.out.println(result); //output 2
+
+Math.min() is basically the opposite of math.max();
+
+Math.random() generates a random number between 0 and 1.
+and Math.random returns a double therefore 
+int result = Math.random(); // this would cause an error 
+so it should be double result = Math.random();
+System.out.println(result); //output random number.
+
+double result = Math.random() *100;
+System.out.println(result); //output a random number between 0 and 100.
+
+double result = Math.round(Math.random() *100);
+System.out.println(result); //output a random number between 0 and 100 which is rounded.
+
+you could also do this:
+double result = (int)Math.random() *100;
+System.out.println(result); //output between 0 and 100
+
+
+Formating numbers:
+An object is an instance of a class.
+The class NumberFormat is instantiated to create an object that allows us to format numbers.
+
+First we instatiate the class NumberFormat then we give our variable name, then we store the NumberFormat class and the getCurrencyInstance method inside our class NumberType
+
+NumberFormat currency = NumberFormat.getCurrencyInstance();
+String result = currency.format(123456); // $123,456
+System.out.println(result);
+
+NumberFormat percent = NumberFormat.getPercentInstance();
+String result = percent.format(0.04); // 4%
+
+or we can also write it this way: a shorter way.
+
+String result =  NumberFormat.getCurrencyInstance().format(123456);
+String result = NumberFormat.getPercentInstance().format(0.04);
+
+Reading input:
+
+instantiating the Scanner class:
+Scanner scannerMB = new Scanner(System.in); //to work with terminal window we use System.in
+//this Scanner class has many methods e.g.
+Byte age = scannerMB.nextByte(); //MB is  just my name.
+                                                    
+System.out.println("your age is " + age); //in the terminal we will be able to type whatever we want and that would be the output for e.g. if I type 20 the output will be your age is 20 and that is because we have the System.in.
+also if we want to have the value printed in the same line we should type System.out.print(); because the .println prints the output in a new line.
+
+Scanner scanner = new Scanner(System.in);
+
+double number = scanner.nextDouble();
+byte number = scanner.nextByte();
+
+//if you want a string value
+String name = scanner.next();
+String line = scanner.nextLine();// if you want the entire value to appear in the same time.
+
+String line = scanner.nextLine().trim; // we can use the trim method to get rid of all white spaces before or after a string.
+
+Control flow:
+
+Comparison operaters - 
+x == y // equality operator
+x != y. // in-equality operator
+x > y
+x >= y
+x < y
+x <= y
+
+Logical operators -
+We use logical operators to combine multiple boolean values/expressions.
+• x && y (AND): if both x and y are true, the result will be true.
+• x || y (OR): if either x or y or both are true, the result will be true.
+• !x (NOT): reverses a boolean value. True becomes false. 
+
+e.g.
+boolean hasHighIncome = true;
+boolean haSsGoodCredit = false;
+boolean hasCriminalRecord = false;
+boolean isEligible = (hasHighIncome || hasGoodCredit);
+
+System.out.println(isEligible);// output == true
+
+if statements:
+Here is the basic structure of an if statement. If you want to execute multiple
+statements, you need to wrap them in curly braces.
+if (condition1){
+ statement1
+}
+else if (condition2){
+ statement2
+ }
+else if (condition3){
+ statement3
+}
+ e.g.
+int temp = 30;
+if (temp >= 30){
+    System.out.println("Its a hot day");
+} else if (temp > 20) { 
+    System.out.println("Its a nice day");
+}else{
+    System.out.println("Its a cold day");
+}
+
+
+Simplifying if statements:
+
+int income =120_000;
+boolean hasHighIncome;
+
+ when you write an if or else statement, you have the option to use or omit curly braces {}. The curly braces are used to create a block of code that groups multiple statements together. 
+ If you have just a single statement that you want to execute based on the condition of the if or else, you can choose to leave out the curly braces. but it's considered a good practice to always use curly braces.
+if (income > 100_000) 
+    hasHighIncome = true;
+else
+    hasHighIncome = false;
+
+To make this we can even make it simpler than this:
+
+int income =120_000;
+boolean hasHighIncome = false; //we removed the else statement by giving the variable an initial value of false, therefore if our condition is true it's going to be and if its not by default will be false.
+if (income > 100_000) 
+    hasHighIncome = true;
+
+even more simpler:
+
+int income = 120_000;
+boolean hasHighIncome = income > 100_000; // so the income = 120_000 and the boolean variable = income > 100_000 therefore by default if the income value is greater then it will be true else it will be false.
+
+
+The ternary operator:
+
+The ternary operator in Java (and many other programming languages) is a shorthand way to represent a simple if-else statement. It takes three operands and is often used for conditional expressions. 
+The syntax is as follows: condition ? expressionIfTrue : expressionIfFalse;
+
+for example:
+int income = 120_000;
+String className = income > 100_000 ? "First class" : "Economy"; 
+
+Switch statements:
+
+Switch vs if-else....
+Use if-else for complex conditions with varying types of comparisons.
+Use switch for cleaner, more organized handling of multiple discrete values for a single expression, particularly when the values are known and limited
+
+String role = "admin";
+
+switch (role) {//our role variable
+
+    case "admin": // case is basically incase this was the variable's content.
+       System.out.println("You are an admin");
+       break; //the break statement says basically if this is true then break out, but we can omit the break incase we have more values which can be true.
+    case "moderator":
+        break;
+       System.out.println("You are a moderator");
+    default: //this basically says that if none of the values are true then do this
+        System.out.println("You are a guest");
+
+}
+
+Also in some cases we donot or we use the break statements once for example,
+
+String role = "admin";
+
+        switch (role) {
+            case "admin":
+            case "superadmin": // Fall-through
+                System.out.println("You have admin privileges");
+                // No break, so execution continues to the next case
+            case "moderator":
+                System.out.println("You are a moderator");
+                // No break, so execution continues to the next case
+            case "editor":
+                System.out.println("You have editor access");
+                // Execution will continue until a break is encountered or end of switch
+                break;
+            default:
+                System.out.println("Unknown role");
+                // This will print if none of the above match
+                // No break here needed either
+        }
+    the output in this case will be: 
+       You have admin privileges
+       You are a moderator
+       You have editor access.
+
+    if the role variable was equal to moderator:
+     the output in this case will be: 
+       You are a moderator
+       You have editor access.
+
+The challenge and its solution:
+
+
+The challenge is to print out fizz when number is divisable by 5 and buzz when divisable 3 and FizzBuzz when divisable by both. */
+//solution no1
+Scanner scanner11 = new Scanner(System.in);
+System.out.print("Number: ");
+int number = scanner11.nextInt();
+
+if (number % 3 == 0 && number % 5 == 0){
+    System.out.println("FizzBuzz");
+} 
+else if(number % 5 == 0) //if number variable divided by 5 = 0 then print
+   System.out.println("Fizz");
+else {
+    System.out.println(number);
+}
+
+
+//Solution no2 // this also an effective solution but it's considered bad practice to nest if staements.
+
+Scanner scanner11 = new Scanner(System.in);
+System.out.print("Number: ");
+
+int number = scanner11.nextInt();
+if (number % 5 == 0){
+    if (number % 3 == 0)
+    System.out.println("FizzBuzz");
+    else
+        System.out.println("Fizz");   
+} else if(number % 3 == 0) {
+    System.out.println("Buzz");
+}else {
+    System.out.println(number);
+
+}
+
+For loops:
+note! we donot need braces when we have a single statements.
+
+for (int i = 0; i < 5; i++) //in the for loop you need three things you need to initialise the variable, the condition, the increment 0r decrement
+    System.out.println("Hello World");
+
+
+You can also place if statements inside a for loop. This allows you to check a condition during each iteration of the loop. 
+example:
+for (int i = 0; i < 5; i++) {
+    if (i % 2 == 0) {
+        System.out.println(i + " is even.");
+    } else {
+        System.out.println(i + " is odd.");
+    }
+}
+//and for loops inside if statements
+
+You can place a for loop inside an if statement to control when the loop should execute based on a specific condition. 
+example:
+int x = 10;
+
+if (x > 5) {
+    for (int i = 0; i < 3; i++) {
+        System.out.println("Inside the loop: " + i);
+    }
+}
+
+
+While loops:
+
+//While loops are very similar to java in terms of functionality by different in terms of syntax.
+
+int i = 0; //so in while loops we declare the variable outside and the increment/decrement inside the curly brackets no between the brackets.
+while (i > 0) {
+   System.out.println("Hello World");
+   i--;
+}   
+While loops are useful when we don’t know ahead of time how many times we want
+to repeat something. This may be dependent on the values at run-time (eg what the
+user enters).
+while (someCondition) {
+ …
+ if (someCondition)
+ break;
+}
+We use the break statement to jump out of a loop
+
+example:
+
+String input = "";
+Scanner scanner = new Scanner(System.in);
+
+while (!input.equals("quit")){  //! not equal
+System.out.print("Input ");
+input = scanner.next().toLowerCase();// because a user might type "Quit" in capital so we transorm everything to small.
+System.out.println(input);
+}
+
+note! to compare string values use .equals and for int and bool and float use ==
+
+note! Object: An instance of a class that contains data and methods.
+note! A reference in Java is a variable that holds the memory address of an object.
+
+Do while loops:
+
+do while loops are very similar to while loops but they executed at least once. In
+contrast, a while loop may never get executed if the condition is initially false.
+
+String input = "";
+Scanner scanner = new Scanner(System.in);
+do {
+ System.out.print("Input ");
+ input = scanner.next().toLowerCase();// in general people use while loops and rarely use while loops.
+ System.out.println(input);
+} while (!input.equals("quit")); // the syntax.
+
+Break and continue staements:
+
+we donot want the program to print the input if the user types "quit" i.e. we donot want quit to be printed.
+String input = "";
+Scanner scanner = new Scanner(System.in);
+
+while (!input.equals("quit")){ 
+System.out.print("Input ");
+input = scanner.next().toLowerCase();
+if (input.equals("quit"))
+    break; //break staement terminiates the loop
+System.out.println(input);
+}
+
+//in this case we want that if the user types "pass"  it does not get printed but we also don't want the program to terminate.
+
+String input = "";
+Scanner scanner = new Scanner(System.in);
+
+while (true){ //so basically this is always true and will keep executing forever until the user types quit.
+System.out.print("Input "); //the string we want to be showed
+input = scanner.next().toLowerCase(); //we want the user to be able to enter something.
+if (input.equals("pass")) 
+    continue; //the continue statement is used within loops to skip the current iteration and move forward to the next iteration, so basically When the continue statement is encountered, the program skips the remaining statements in the loop body for that particular iteration
+if (input.equals("quit"))
+    break; 
+System.out.println(input);
+}
+
+For-Each loop: 
+
+its not as efficient as for and while loops, 
+For-each loops are useful for iterating over an array or a collection.
+
+String[] fruits = {"Apple", "Mango", "Orange"};
+
+for (String fruit : fruits)  //the syntax, basically we should declare a string variable inside the for-each loop because we want to iterate over a string, then we type a colon then the string's name we want to iterate over;
+  System.out.println(fruit);
+
+for-each limitations:
+you cannot access the index of the current element directly
+you cannot remove elements inside the loop i.e. like  using the .remove method.
+you cannot start the loop from the end.
+
+note! you can add as much methods as you want inside the class(which is a java file), but you hav to refer them in the main method to run them 
+example:
+public class bob {
+    public static void main(String[] args) { //the main method
+       bob(); //if we didnt refer our method which is called bob in the main method it would not work.
+       addition(5, 5);
+    }
+    public static void bob() { // another method
+        System.out.println("This is a method called bob")
+    }
+    public static void addition(int a, int b) { // the int is a parameter
+        System.out.println(a + b);
+    }
+}
+
+Return statements:
+
+
+Return statements let you run a method and then bring the results of that method into a variable.
+the void keyword in public static void is the type that the method will bring back to you, so we can change it into int, String, double etc..., but void means nothing, it means once you call the method it runs the code and that's it
+
+public class ReturnStatements {
+    public static void main(String[] args) { 
+       aMethod(); 
+       addition(); //this will work fine
+      int sum = addition(5, 5); //this would make an error because we cant store a variable with a type int in a method with a type void.
+    }
+    public static void aMethod() { 
+        System.out.println("This is a method called aMethod")
+    }
+    public static void addition(int a, int b) { 
+        System.out.println(a + b);
+    }
+}
+
+so for this to work we need to replace void in our method with the data type which is int.
+
+
+ public class ReturnStatements{
+
+    public static void main(String[] args) { 
+       aMethod(); 
+      int sum = addition(5, 4); 
+      System.out.println(sum);
+
+      String shouting = caps("Stop shouting");
+      System.out.println(shouting);
+
+      int[] awesomeArray = gimmeAnArrayFromInts(33, 34, 35);
+      System.out.println(awesomeArray[0]);
+
+    }
+    public static void aMethod() { 
+        System.out.println("This is a method called aMethod");
+    }
+    public static int addition(int a, int b) { 
+        return a + b;
+    }
+    public static String caps(String s) {
+        return s.toUpperCase();
+    }
+    public static int[] gimmeAnArrayFromInts(int a, int b, int c){ // to return an array
+        int[]  array = new  int[3]; 
+        array[0] = a;
+        array[1] = b;
+        array[2] = c;
+
+        return array;
+    }
+}
+
+note! everything in the world is an object and by using object-oriented programming we can program everything in the world inside a computer.
+
+
+Java Constructor: 
+
+//a constructor has the same name as the class it belongs to a constructor has no return type not even void, A constructor is automatically invoked when an object(instance of a class) of the class is created using the new keyword in the main method
+
+// A constructor basically constructs an object, an object in real life has certain properties and can certain things for e.g. a shirt or a phone etc.., so we present objects in the computer as having certain properties and doing certain things.
+
+// Java provides a default constructor if no constructers were created.
+
+public class Shirt { //so basically this is the class shirt which contains the blueprints for the object to be created.
+    public static String color; //Attribute for shirt color
+    public static char size; //Attribute for shirt size
+
+    public static void putOn() {
+        System.out.println("Shirt is on");
+    }
+    public static void takeOff() {
+         System.out.println("Shirt is off");
+    
+     }
+     public static void setColor(String newColor) { // we're creating a string parameter so when we declare it we can set the value.
+     color = newColor; //color and shirt are the attributes we declared earlier.
+     //the reason we're making color = to newColor parameter is that when we use s.color(); we will be able to type a string inbetween the brakets.
+     }
+  public static void setSize(char newSize) {
+     size = newSize;
+     }
+
+}
+note! this is the main class which has the main method
+
+public class Main { //so upwards we made the blueprint of the object shirt(i.e. what is it) which is the class called Shirt no we have to create it.
+public static main void(String[] args) {
+    Shirt s = new Shirt(); // so basically we created or constructed a new object called s from the class Shirt.
+    /*and to use the object s we type s. and then we get all the things which the shirt can do which are methods*/ 
+    
+    s.putOn(); 
+    s.takeOff(); // we already have our default constructor and it has System.out.println("Shirt is off");
+    s.color("White");
+    s.size('M');//you cannot use double quotes in char
+  }
+  }
+
+
+
+//creating our own constructor to simplify the process, note! a constructor is the class name and treated like a method.
+
+public class Shirt { 
+    public static String color; 
+    public static char size; 
+
+    Shirt(String newColor, String NewSize){ //a constructor has the same name as the class it belongs to a constructor has no return type not even void, A constructor is automatically invoked when an object(instance of a class) of the class is created using the new keyword.
+        color = neWcolor;
+        size = newSize;
+    }
+    public static void putOn() {
+        System.out.println("Shirt is on");
+    }
+    public static void takeOff() {
+         System.out.println("Shirt is off");
+    
+     }
+
+}
+public class Main { 
+    public static void main(String[] args) {
+        Shirt s = new Shirt("White", "XL"); 
+    
+        System.out.println(s.color);
+        System.out.println(s.size);
+    }
+}
+
+This Keyword:
+
+The primary use of this is to refer to the instance variables or methods of the current object. This is especially useful in situations where the instance variables have the same name as method parameters.
+note! this keyword will not work with static method, because  this cannot be used with static methods or variables because static members belong to the class itself, not to instances. Thus, they do not have a context in which the this keyword would be valid.
+
+example:
+public class ThisIsFun {
+    int a;
+    int b;
+
+    public void setData(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+    public static void main(String[] args) {
+        setData(4, 3); //declaring the setData method in the main method with both parameters.
+        ThisIsFun t  = new ThisIsFun;
+        t.setData(4, 3);
+        System.out.println(t.a);
+        System.out.println
+    }
+}
+
+Access modifiers:
+the types of access modifiers: default, public, private, protected
+The access modifiers are the visibility i.e. where the members can be accessed from.
+
+The main ones we use(public, private)
+there is no much difference between default and public.
++ public:   Members (methods or variables) declared as public are accessible from any other class in any package. for e.g.
+- private:  Members declared as private are only accessible within the same class where they are declared.
+  default:  Members with default access are accessible only within classes in the same package, no keyword; absence of any modifier
+  protected: can be used within different classes but not different packages
+
+Getters and setters:
+ Setters are methods that allow you to set or update the values of private fields, for example if you have set a method and you you want to change the values later and it's private how can you change it. simple by using setter
+ Getters are methods that retrieve the values of private fields.
+
+Encapsulation: 
+Encapsulation = attributes of a class will be hidden or private.
+                Can be accessed only through methods(getters and setters)
+                You should make attributes private if you have no reason to make them public.
+                + public:   Members (methods or variables) declared as public are accessible from any other class in any package. for e.g.
+                - private:  Members declared as private are only accessible within the same class where they are declared.
+example:
+
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+    Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Car car = new Car("Mercedes", "benz", "2020");
+        System.out.println(car.make); // this will make an error because our attributes are private therefore they can't be accessed in an other class,
+        so to retrive one of those methods we can use a getter method.   
+    }
+}
+
+// Using the getter method to be able to retrive the values from the the private fields.
+
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+    Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+
+        public String getMake() {
+            return make;
+        }       
+        public String getModel() {
+            return model;
+        }
+        public int getYear() {
+            return year;
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args){
+        Car car = new Car("Mercedes", "benz", "2020");
+        System.out.println(car.getMake()); //using the getter method;
+    }
+}
+
+//Using setters to be able to change the values of the private fields.
+
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+    Car(String make, String model, int year) {
+        //this.make = make; since we already are setting these parameters in our setter methods we can just use our setter methods for the values instead but it doesn't really matters it will work either way. 
+        this.setMake(make);
+        
+        //this.model = model;
+       this.setModel(model);
+       
+       //this.year = year;
+       this.setYear(year);
+
+        public String getMake() {
+            return make;
+        }       
+        public String getModel() {
+            return model;
+        }
+        public int getYear() {
+            return year;
+        }
+        public void setMake(String make) {  //now because this is public we can use this setter later to change its value.
+            //void because we're not returning anything
+            this.make = make;
+        }
+        public void setModel(String model) {
+            this.model = model;
+        }
+        public void setYear(int year) {
+            this.year = year;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Car car = new Car("Mercedes", "benz", "2020");
+        System.out.println(car.getMake()); //using the getter method;
+        
+        //now by using our setter methods we can change the values by using our setter methods.
+        car.setYear(2022); // now the value has changed by using our setter
+        System.out.println(car.getYear); //output 2022 not 2020
+    }
+}
+
+
+Java Method chaining:
+
+Inheritance:
+
+
+UML(Unified modelling language): the nooblab
+
+
+note! you cannot declare a top-level class within the main method, you can declare a local class within the method.
+
+variables: 
+objects: is a blueprint or an instant of a class which has all the attributes and properties of this constructed object
+classes, 
+methods,  
+constructors: onstructor is a special method in a class that is called when an object of that class is created.
+parameters, 
+functions, 
+return:
+
